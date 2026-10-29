@@ -1,3 +1,137 @@
+/* Gör att bredd (width) och höjd (height) inkluderar både inneravstånd (padding) 
+   och ram (border). Det förhindrar att element blir större än man har bestämt. */
+/* Gör att alla element (och framtida pseudo-element) inkluderar padding och border 
+   i sin bredd/höjd. Det är den moderna standarden eftersom det gör layouter 
+   förutsägbara utan att förstöra webbläsarens inbyggda avstånd på knappar och listor. */
+/* Visuellt försvinner marginalerna. Raderar inte margin och padding på allt, bara hur måtten räknas.*/
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0;
+   background-color: #fffaf3;
+}
+
+header {
+   background-color: #5b3a29;
+   padding: 16px 24px;
+   color: white;
+}
+
+nav ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+nav ul a {
+   color: white;
+}
+
+footer {
+   background-color: #2b1c14;
+   padding: 16px 24px;
+   color: white;
+}
+
+.knapp {
+   display: inline-block;
+   background-color: #8c1010;
+   color: azure;
+   padding: 12px 20px;
+   border-radius: 5px;
+   text-decoration: none;
+}
+
+.knapp:hover {
+   background-color: #6f0c0c;
+   color: white;
+}
+
+a {
+   color: #8c1010;
+}
+
+.pris {
+   color: #8c1010;
+}
+
+main section p {
+   color: #222222;
+}
+
+section h1,
+h2,
+h3 {
+   color: #3b2418;
+}
+
+/*
+==================================================
+BOXMODELL FÖR ARTICLE (KORT)
+==================================================
+
+  +---------------------------------------------+
+
+  | MARGIN: 0px                                 |
+  |   +---------------------------------------+ |
+  |   | BORDER: 1px                           | |
+  |   |   +---------------------------------+ | |
+  |   |   | PADDING: 32px                   | | |
+  |   |   |   +---------------------------+ | | |
+  |   |   |   | INNEHÅLL (CONTENT)        | | | |
+  |   |   |   |                           | | | |
+  |   |   |   | Bredd:  246.094 px        | | | |
+  |   |   |   | Höjd:   37.000 px         | | | |
+  |   |   |   +---------------------------+ | | |
+  |   |   +---------------------------------+ | |
+  |   +---------------------------------------+ |
+  +---------------------------------------------+
+
+==================================================
+*/
+
+article {
+   background-color: #ffffff;
+   border: 1px solid;
+   border-color: #e3d5c3;
+   border-radius: 8px;
+   padding: 16px;
+   margin-bottom: 16px;
+   max-width: 100%;
+   height: auto;
+   /* box-shadow: 0 8px 16px rgba(91, 58, 41, 0.4); */
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+#hero {
+   background-color: #f3e3cf;
+   padding: 24px;
+}
+
+#hero p {
+   margin-bottom: 24px;
+}
+
+/* Innehållets bredd, centrerat, padding. */
+/* header,
+main,
+footer {
+   max-width: 1100px;
+   margin: 0 auto;
+   padding: 16px;
+} */
+
+/* Inte snyggt eftersom header inte följer med... 
+ margin: 0 sätter marginalen uppe och nere med noll pixlar (auto sätter vä och hö). */
+main {
+   max-width: 1100px;
+   margin: 0 auto;
+   padding: 16px;
+}
+
 /* Dag 3: grunder och boxmodell. Följ README.md och design.md.
    TODO 1: box-sizing (överst)
    TODO 2: body
